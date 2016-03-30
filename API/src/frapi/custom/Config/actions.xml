@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<frapi-config>
+ <actions>
+  <action>
+   <name>Collection</name>
+   <enabled>1</enabled>
+   <public>1</public>
+   <description>This is an example of a collection. A collection is a bucket of resources. In this case, you can only POST and DELETE this collection.&#13;
+&#13;
+POST: A post will add a new resource to a collection. You have to pass a &quot;name&quot; parameter.&#13;
+&#13;
+DELETE: Delete collection will remove the collection of resources from the system.&#13;
+&#13;
+Try it with &quot;curl -X POST http://api.frapi/collection -d '{&quot;name&quot;:&quot;new&quot;}' -H 'Content-Type: application/json'&#13;
+&#13;
+</description>
+   <route>/collection</route>
+   <hash>a0caa1c9f6c5ba636005b312918e7ce6acf70ccb</hash>
+   <parameters>
+    <parameter>
+     <name>name</name>
+     <required>0</required>
+    </parameter>
+   </parameters>
+  </action>
+  <action>
+   <name>Resource</name>
+   <enabled>1</enabled>
+   <public>1</public>
+   <description>This is the resource contained in a certain collection group. &#13;
+&#13;
+PUT: A put with the &quot;name&quot; parameter will update the name of the resource&#13;
+&#13;
+DELETE: Deletes the resource.&#13;
+&#13;
+GET: This retrieves the information relative to the resource contained in the collection</description>
+   <route>/collection/:resource</route>
+   <hash>3ecc1f98f5c2292d41150143083df87ea81dca08</hash>
+   <parameters>
+    <parameter>
+     <name>name</name>
+     <required>0</required>
+    </parameter>
+   </parameters>
+  </action>
+  <action>
+   <name>Siblings</name>
+   <enabled>1</enabled>
+   <public>1</public>
+   <description>This is a collection of sibling for a resource. This only accepts POST, DELETE, GET and HEAD. &#13;
+&#13;
+POST: A post will add a new sibling using the name parameter&#13;
+&#13;
+DELETE: This deletes the siblings connections, it removes all siblings in the collection&#13;
+&#13;
+GET: Retrieve a list of siblings and the relative information.&#13;
+&#13;
+HEAD: Fetch the meta information for the siblings.</description>
+   <route>/collection/:resource/siblings</route>
+   <hash>2f4d1cefc3bbb184dda9da882fac349558b8bb70</hash>
+   <parameters>
+    <parameter>
+     <name>name</name>
+     <required>0</required>
+    </parameter>
+   </parameters>
+  </action>
+  <action>
+   <name>Sibling</name>
+   <enabled>1</enabled>
+   <public>1</public>
+   <description>This is used to execute operations on a sibling resource. &#13;
+&#13;
+GET: Retrieve the information relative to a sibling&#13;
+&#13;
+DELETE: Remove a sibling for this resource&#13;
+&#13;
+HEAD: Retrieve the meta information relative to a sibling.&#13;
+&#13;
+</description>
+   <route>/collection/:resource/siblings/:sibling</route>
+   <hash>836d88aacf5906048737893dd4dc0469e353dc33</hash>
+  </action>
+  <action>
+   <name>Introduction</name>
+   <enabled>1</enabled>
+   <public>1</public>
+   <route>/</route>
+   <hash>29e39f311db4ca2ef7dacf8d8c493ef69aa29b61</hash>
+  </action>
+  <action>
+   <name>User</name>
+   <enabled>1</enabled>
+   <public>0</public>
+   <route>/user</route>
+   <hash>936148278f857f0bea189022f3d92afc21ee6426</hash>
+  </action>
+  <action>
+   <name>Users</name>
+   <enabled>1</enabled>
+   <public>0</public>
+   <route>/user/:user_id</route>
+   <hash>96fee4b7ff6d1e4c8a34c4977513da91f0a95f3a</hash>
+   <parameters>
+    <parameter>
+     <name>first_name</name>
+     <required>0</required>
+    </parameter>
+    <parameter>
+     <name>last_name</name>
+     <required>0</required>
+    </parameter>
+    <parameter>
+     <name>username</name>
+     <required>0</required>
+    </parameter>
+    <parameter>
+     <name>password</name>
+     <required>0</required>
+    </parameter>
+    <parameter>
+     <name>id</name>
+     <required>0</required>
+    </parameter>
+   </parameters>
+  </action>
+  <action>
+   <name>Devices</name>
+   <enabled>1</enabled>
+   <public>0</public>
+   <route>/devices</route>
+   <hash>a4aaf7a1da30cf1d24f315fa849ff9531470ddf0</hash>
+   <description>This is a Collection of Devices.&#13;
+</description>
+   <parameters>
+    <parameter>
+     <name>id</name>
+     <required>0</required>
+    </parameter>
+   </parameters>
+  </action>
+  <action>
+   <name>Device</name>
+   <enabled>1</enabled>
+   <public>0</public>
+   <route>/devices/:id</route>
+   <hash>d46168750eb6ed469ccdfa9f810d8f18b1e3570c</hash>
+   <description>This is a Resource with an identifier.&#13;
+</description>
+   <parameters>
+    <parameter>
+     <name>id</name>
+     <required>0</required>
+    </parameter>
+    <parameter>
+     <name>name</name>
+     <required>0</required>
+    </parameter>
+    <parameter>
+     <name>location</name>
+     <required>0</required>
+    </parameter>
+    <parameter>
+     <name>serial_number</name>
+     <required>0</required>
+    </parameter>
+    <parameter>
+     <name>comment</name>
+     <required>0</required>
+    </parameter>
+   </parameters>
+  </action>
+  <action>
+   <name>Events</name>
+   <enabled>1</enabled>
+   <public>0</public>
+   <route>/events</route>
+   <hash>f1e8ac4af2fcb0185b29c47da8676b3d2d6e68eb</hash>
+   <description>A list of events from the watermeter.&#13;
+</description>
+   <parameters>
+    <parameter>
+     <name>id</name>
+     <required>0</required>
+    </parameter>
+   </parameters>
+  </action>
+  <action>
+   <name>Event</name>
+   <enabled>1</enabled>
+   <public>0</public>
+   <route>/events/:id</route>
+   <hash>c17a75955ccef1d872650fa41bc5cdb6fe9e9b98</hash>
+   <parameters>
+    <parameter>
+     <name>id</name>
+     <required>0</required>
+    </parameter>
+    <parameter>
+     <name>timestamp</name>
+     <required>0</required>
+    </parameter>
+    <parameter>
+     <name>comment</name>
+     <required>0</required>
+    </parameter>
+    <parameter>
+     <name>device_id</name>
+     <required>0</required>
+    </parameter>
+    <parameter>
+     <name>device_name</name>
+     <required>0</required>
+    </parameter>
+    <parameter>
+     <name>value</name>
+     <required>0</required>
+    </parameter>
+    <parameter>
+     <name>Array</name>
+     <required>0</required>
+    </parameter>
+   </parameters>
+  </action>
+ </actions>
+</frapi-config>
