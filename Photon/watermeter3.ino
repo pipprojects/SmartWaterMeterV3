@@ -103,12 +103,14 @@ void setup() {
 
   WiFi.selectAntenna(AntSel);
 
-  StatusDelay=360000;
+  StatusDelay=300000;
 
-  APIData.Host = "api.watermeter.baoyue.co.uk";
-  APIData.IP = IPAddress(192,168,4,201);
+  APIData.Host = "api.watermeter.localhost";
+// IP Address of this host
+  APIData.IP = IPAddress(192,168,0,1);
   APIData.Port = 80;
   APIData.Path="/events";
+// This is set in the FRAPI admin interface under Partners
   APIData.Credentials.username = "test";
   APIData.Credentials.password = "34c285b25ac62f9472265d1e41f8a77f5d2382f6";
   APIData.DeviceID = "7f96af4aac49acfcb9b10198a2280665";
